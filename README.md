@@ -23,12 +23,9 @@ npm install or yarn install
 ```
 # Screenshots
 <div display="flex" align="center">
-<img src="https://user-images.githubusercontent.com/72293996/107486513-b6809780-6bb7-11eb-8189-5799d109e00f.png" width="300">
-<img src="https://user-images.githubusercontent.com/72293996/107486735-f8114280-6bb7-11eb-88d7-21a0ddec3cd6.png" width="300">
-<img src="https://user-images.githubusercontent.com/72293996/107486785-065f5e80-6bb8-11eb-8242-893bd8f88e06.png" width="300">
-<img src="https://user-images.githubusercontent.com/72293996/107486845-170fd480-6bb8-11eb-9bab-8f3003172d11.png" width="300">
-<img src="https://user-images.githubusercontent.com/72293996/107486890-255df080-6bb8-11eb-982b-428b6eb87eea.png" width="300">
-</div>
+<img src="https://user-images.githubusercontent.com/72293996/112709988-71f35600-8ef0-11eb-8286-b8b5444e42eb.png" width="300">
+<img src="https://user-images.githubusercontent.com/72293996/112709988-71f35600-8ef0-11eb-8286-b8b5444e42eb.png" width="300">
+<img src="https://user-images.githubusercontent.com/72293996/112710019-a109c780-8ef0-11eb-9da0-ab4e80afc3a0.png" width="300">
 
 # Author
 This project was built by :
