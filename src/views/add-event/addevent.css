@@ -1,0 +1,15 @@
+.addevent-col {
+    background-color: rgb(194, 194, 194);
+}
+
+.image-event {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.image-event img {
+    width: 100%;
+    height: 100%;
+}

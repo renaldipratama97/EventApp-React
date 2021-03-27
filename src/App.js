@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import AddEvent from "./views/add-event/AddEvent";
+import CardEvent from "./views/card-event/CardEvent";
+import Dashboard from "./views/dashboard/Dashboard";
+import { NavComponents } from './components/navigation/NavComponents'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <React.Fragment>
+        <NavComponents />
+        <Switch>
+          <Route path="/" exact component={AddEvent} />
+          <Route path="/addevent" exact component={AddEvent} />
+          <Route path="/cardevent" exact component={CardEvent} />
+          <Route path="/dashboard" exact component={Dashboard} />
+        </Switch>
+      </React.Fragment>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
