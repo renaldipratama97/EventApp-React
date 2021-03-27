@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { Button, Form, Input, Row, Col } from "reactstrap";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import eventPicture from "../../assets/event.jpg";
 import './addevent.css'
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 
 const AddEvent = () => {
@@ -14,6 +15,8 @@ const AddEvent = () => {
   const [note, setNote] = useState('')
   const [picture, setPicture] = useState('')
 
+  let history = useHistory();
+
   function addEvent() {
     const data = new FormData();
     data.append("title", title);
@@ -22,16 +25,44 @@ const AddEvent = () => {
     data.append("date", date);
     data.append("note", note);
     data.append("picture", picture.selectedFile);
-
+    if (title === '' || participant === '' || location === '' || date === '' || note === '') {
+      Swal.fire({
+        icon: 'error',
+        title: 'All forms must be filled',
+        showConfirmButton: false,
+        timer: 2000
+      })
+    }
     axios.post(`http://localhost:4321/event/addevent`, data)
       .then((res) => {
-        alert('Add Event Succesfully')
+        Swal.fire({
+          icon: 'success',
+          title: 'Add Event Succesfully',
+          showConfirmButton: false,
+          timer: 2000
+        })
         setTitle('')
         setLocation('')
         setParticipant('')
         setDate('')
         setNote('')
         setPicture('')
+        history.push("/cardevent");
+      })
+      .catch((err) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Failed',
+          showConfirmButton: false,
+          timer: 2000
+        })
+        setTitle('')
+        setLocation('')
+        setParticipant('')
+        setDate('')
+        setNote('')
+        setPicture('')
+        history.push("/addevent");
       })
   }
   return (
@@ -106,15 +137,13 @@ const AddEvent = () => {
                   />
                 </div>
                 <div className="d-flex justify-content-end">
-                  <Link to="/cardevent">
-                    <Button
-                      type="submit"
-                      color="primary"
-                      onClick={() => addEvent()}
-                    >
-                      Add Event
+                  <Button
+                    type="submit"
+                    color="primary"
+                    onClick={() => addEvent()}
+                  >
+                    Add Event
                     </Button>
-                  </Link>
                 </div>
               </Form>
             </div>
